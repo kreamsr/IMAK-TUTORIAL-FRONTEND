@@ -10,6 +10,7 @@ import Profile from './pages/Profile'
 import Appointment from './pages/Appointment'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import StudentSchedule from './pages/StudentSchedule'
 
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
         <Route path="/lecturers/:subject" element={<Lecturers />} />
         <Route path='/login' element= {<Login />} />
         <Route path='/profile' element= {<Profile />} />
-        <Route path='/appointment' element= {<Appointment />} />
+        <Route path='/schedule' element= {<StudentSchedule />} />
         <Route path='/appointment/:techId' element= {<Appointment />} />
       </Routes>
       <Footer/>
