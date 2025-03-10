@@ -52,7 +52,20 @@ const Navbar = () => {
           :
             <button onClick={() => navigate('/login')} className='bg-indigo-700 text-white px-5 py-3 rounded-full hover:bg-indigo-900 transition-all duration-200'>Create Account</button>
         }
-        
+        <img onClick={() => setShowMenu(true)} className='w-6 md:hidden cursor-pointer' src={assets.menu_icon} alt="" />
+        {/* menu  */}
+        <div className={`${showMenu ? 'fixed w-full h-full' :' w-0 h-0'} md:hidden right-0 top-0 z-20 overflow-hidden bg-white `}>
+          <div className='flex items-center justify-between px-5 py-6'>
+            <img className='w-28 cursor-pointer' src={assets.logo} alt="" />
+            <img className='w-7 cursor-pointer' onClick={() => setShowMenu(false)} src={assets.cross_icon} alt="" />
+          </div>
+          <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
+            <NavLink onClick={() => setShowMenu(false)} to= {'/'}> <p  className='px-4 py-2 rounded-lg inline-block hover:bg-gray-100 rounded-lg hover:font-light'> Home</p> </NavLink>
+            <NavLink  onClick={() => setShowMenu(false)} to= {'/lecturers'}><p className='px-4 py-2 rounded-lg inline-block hover:bg-gray-100 rounded-lg hover:font-light'>Lecturers</p></NavLink>
+            <NavLink  onClick={() => setShowMenu(false)} to= {'/contact'}><p className='px-4 py-2 rounded-lg inline-block hover:bg-gray-100 rounded-lg hover:font-light'>Contact</p></NavLink>
+            <NavLink  onClick={() => setShowMenu(false)} to= {'/about'}><p className='px-4 py-2 rounded-lg inline-block hover:bg-gray-100 rounded-lg hover:font-light'>About</p></NavLink>
+          </ul>
+        </div>
       </div>
     </div>
   )

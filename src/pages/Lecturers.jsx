@@ -7,7 +7,8 @@ const Lecturers = () => {
   const {lecturers} = useContext(AppContext);
   const [filter, setFilter] = useState([]);
   const navigate = useNavigate();
-  
+  const [showFilter, setShowFilter] = useState(false);
+
   const Filter = () => {
       if (subject) {
         setFilter( lecturers.filter((item) => item.subject === subject ))
@@ -24,7 +25,8 @@ const Lecturers = () => {
     <div>
         <p className='text-gray-600'>Find Lecturers With Thier Respective Subject</p>
         <div className='flex flex-col sm:flex-row items-start gap-5 mt-5'>
-          <div className='flex flex-col gap-4 text-sm text-gray-600 pt-5'>
+          <button className={`py-1 px-3 border rounded-lg text-sm transition-all sm:hidden cursor-pointer ${showFilter ? 'bg-indigo-700 text-white' : ''}`} onClick={() => setShowFilter(prev => !prev)}>Filters</button>
+          <div className={`${showFilter ? 'flex' : 'hidden sm:flex'} flex-col gap-4 text-sm text-gray-600 pt-5`}>
             <p onClick={() => subject === 'Quran' ? navigate('/lecturers') : navigate('/lecturers/Quran')} className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16  border border-gray-300 rounded transition-all cursor-pointer duration-500] ${subject === 'Quran'? 'bg-indigo-100 text-black' : ""}`}>Quran</p>
             <p onClick={() => subject === 'Terbia' ? navigate('/lecturers') : navigate('/lecturers/Terbia')} className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer duration-500] ${subject === 'Terbia'? 'bg-indigo-100 text-black' : ""}`}>Terbia</p>
             <p onClick={() => subject === 'Biology' ? navigate('/lecturers') : navigate('/lecturers/Biology')} className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer duration-500] ${subject === 'Biology'? 'bg-indigo-100 text-black' : ""}`}>Biology</p>
