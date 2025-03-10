@@ -1,0 +1,22 @@
+
+@import "tailwindcss";
+
+
+.navlogo{
+    
+  font-family:cursive;
+  font-weight: 900;
+  /* font-style: italic; */
+  color: #4338CA;
+  letter-spacing: 0.25px;
+       
+      
+}
+.active hr{
+  display:block;
+  
+}
+
+::-webkit-scrollbar{
+  @apply hidden
+}
