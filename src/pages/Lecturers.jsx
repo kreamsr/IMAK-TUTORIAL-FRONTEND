@@ -43,7 +43,7 @@ const Lecturers = () => {
                   <img className='bg-indigo-100  w-74 h-80' src={item.image} alt="" />
                   <div className='p-4'>
                     <div className='flex items-center gap-2 text-sm text-center text-green-500'>
-                      <p className='w-2 h-2 bg-green-500 rounded full'></p><p>Available</p>
+                      <p className={`w-2 h-2  rounded full ${item.available ? 'bg-green-500' : 'bg-red-600' }`}></p><p className={`${item.available ? "" : "text-red-600"}`}>{item.available ? "Available" : "Not Available"}</p>
                     </div>
                     <p className='text-gray-900 text-lg font-medium'>{item.name}</p>
                     <p className='text-gray-600 text-sm'>{item.subject}</p>

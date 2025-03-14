@@ -42,6 +42,8 @@ import logic from './logic.jpg'
 import english from './english.jpg'
 import chemistry from './chemistry.jpg'
 import biology from './biology.png'
+import hide from './hide.png'
+import show from './show.png'
 
 
 
@@ -62,7 +64,7 @@ export const assets = {
     dropdown_icon,
     upload_icon,
     stripe_logo,
-    razorpay_logo
+    razorpay_logo,show,hide
 }
 
 export const subjectData = [

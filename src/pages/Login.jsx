@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
+import {assets} from '../assets/assets'
 
 const Login = () => {
 
   const[ currentState, setCurrentState ]= useState('Sign Up')
+    const [showPasswordIcon , setShowPasswordIcon] = useState(false)
 
   const [name, setName ] = useState("")
   const [password, setPassword ] = useState("")
@@ -33,7 +35,11 @@ const Login = () => {
       </div>
       <div className='flex flex-col mb-2 w-full'>
         <label className='text-gray-700 mb-1' >Password</label>
-        < input onChange={(e) => setPassword(e.target.value)} className='w-full border border-gray-300 rounded-sm outline-none h-10 px-2' type="password" placeholder='Password' value={password}/>
+        <div className='w-full flex items-center justify-between border border-gray-300 rounded-sm outline-none h-10 px-2'>
+          < input onChange={(e) => setPassword(e.target.value)} className='w-full outline-none ' type={`${showPasswordIcon ? 'text' : 'password'}`} placeholder='Password' value={password}/>
+          {showPasswordIcon ? <img className='w-10 cursor-pointer' onClick={() => setShowPasswordIcon(false)} src={assets.show} alt="" /> : <img className='w-10 cursor-pointer' onClick={() => setShowPasswordIcon(true)} src={assets.hide} alt="" /> }
+        </div>
+        
         <button className='w-full mt-5 bg-indigo-700 text-white h-10 rounded-lg hover:bg-indigo-600 cursor-pointer'>{currentState === 'Login' ? 'Login' :'Create Account' }</button>
         {currentState === 'Login' ? <p className='mt-7 text-gray-600'>Create New one! <span  onClick={() => setCurrentState('Sign Up')} className='text-indigo-700 underline cursor-pointer'>Create Account</span></p>:<p className='mt-7 text-gray-600'>Already have an account?<span onClick={() => setCurrentState('Login')} className='text-indigo-700 underline cursor-pointer'>Login Here</span></p> }
       </div>
